@@ -4,5 +4,5 @@ spring:
       database: familyenglish
       host: localhost
       port: 27017
-      repositories:
-        enabled: true
+#      repositories:
+#        enabled: true
