@@ -44,8 +44,15 @@ dependencies {
     implementation 'org.mapstruct:mapstruct:1.4.1.Final'
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.1.Final'
 
+    // Swagger
     compile 'io.springfox:springfox-boot-starter:3.0.0'
     compile 'io.springfox:springfox-swagger-ui:2.9.2'
+
+    // Testcontainers
+    testCompile 'org.testcontainers:testcontainers:1.15.1'
+    testCompile 'org.testcontainers:junit-jupiter:1.15.1'
+    testCompile "org.testcontainers:mongodb:1.15.1"
+
 
 }
 
