@@ -4,20 +4,25 @@ import io.github.petriankin.familyenglish.domain.enums.EducationPlace;
 import io.github.petriankin.familyenglish.domain.enums.EducationType;
 import io.github.petriankin.familyenglish.domain.enums.StudentCategory;
 import io.github.petriankin.familyenglish.domain.enums.StudentStatus;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.UUID;
 
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Document(collection = "students")
 public class Student {
 
     @Id
-    private UUID id;
+    private String id;
 
     private String firstName;
     private String middleName;
@@ -41,6 +46,7 @@ public class Student {
 
     private EducationType educationType;
     private StudentCategory category;
+    @Builder.Default
     private StudentStatus status = StudentStatus.POTENTIAL_CLIENT;
     private EducationPlace educationPlace;
 
