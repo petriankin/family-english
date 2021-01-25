@@ -8,6 +8,7 @@ import io.github.petriankin.familyenglish.domain.repository.StudentRepository;
 import io.github.petriankin.familyenglish.domain.service.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.UUID;
@@ -39,7 +40,12 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public StudentDto update(UUID studentId, StudentDto dto) {
-        throw new UnsupportedOperationException();
+        Student foundStudent = studentRepository.findById(studentId)
+                .orElseThrow(() -> new EntityNotFoundException("Student not found"));
+
+        Student updatedStudent = studentMapper.updateFromDto(dto, foundStudent);
+
+        return studentMapper.toDto(studentRepository.save(updatedStudent));
     }
 
     @Override
