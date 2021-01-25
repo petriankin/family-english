@@ -1,4 +1,4 @@
-package io.github.petriankin.familyenglish.congig;
+package io.github.petriankin.familyenglish.config;
 
 import org.testcontainers.containers.MongoDBContainer;
 
